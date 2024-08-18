@@ -1,22 +1,21 @@
 import React from "react";
 import { Button as AntdButton } from "antd";
-import type { ButtonType } from "antd/es/button";
+import { CommonComponentProps } from "@/types";
 
-interface ButtonProps {
-  type: ButtonType;
-  test: string;
-  className?: string;
-  onClick?: () => void;
-}
-
-const Button: React.FC<ButtonProps> = ({
+const Button: React.FC<CommonComponentProps> = ({
   onClick,
   type,
   test,
   className = "",
+  id,
 }) => {
   return (
-    <AntdButton type={type} onClick={onClick} className={` ${className}`}>
+    <AntdButton
+      data-component-id={id}
+      type={type}
+      onClick={onClick}
+      className={` ${className}`}
+    >
       {test}
     </AntdButton>
   );
