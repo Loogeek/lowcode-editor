@@ -1,0 +1,21 @@
+import { useMemo } from "react";
+import { useComponentConfig } from "@/stores/component-config";
+import MaterialItem from "./MaterialItem";
+
+function Materail() {
+  const { componentConfig } = useComponentConfig();
+  const components = useMemo(
+    () => Object.values(componentConfig),
+    [componentConfig]
+  );
+
+  return (
+    <div className="materail">
+      {components.map((component, index) => (
+        <MaterialItem name={component.name} key={component.name + index} />
+      ))}
+    </div>
+  );
+}
+
+export default Materail;
