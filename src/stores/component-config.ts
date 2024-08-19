@@ -3,10 +3,19 @@ import Container from "@/components/Materail/Container";
 import Button from "@/components/Materail/Button";
 import Page from "@/components/Materail/Page";
 
-interface ComponentConfig {
+export interface ComponentSetter {
+  name: string;
+  label: string;
+  type: string;
+  [key: string]: any;
+}
+
+export interface ComponentConfig {
   name: string;
   defaultProps: Record<string, any>;
   desc: string;
+  setter?: ComponentSetter[];
+  stylesSetter?: ComponentSetter[];
   component: any;
 }
 
@@ -30,9 +39,37 @@ export const useComponentConfig = create<State & Actions>((set) => ({
       name: "Button",
       defaultProps: {
         type: "primary",
-        test: "按钮",
+        text: "按钮",
       },
       desc: "按钮",
+      setter: [
+        {
+          name: "type",
+          label: "按钮类型",
+          type: "select",
+          options: [
+            { label: "主按钮", value: "primary" },
+            { label: "次按钮", value: "default" },
+          ],
+        },
+        {
+          name: "text",
+          label: "文本",
+          type: "input",
+        },
+      ],
+      stylesSetter: [
+        {
+          name: "width",
+          label: "宽度",
+          type: "inputNumber",
+        },
+        {
+          name: "height",
+          label: "高度",
+          type: "inputNumber",
+        },
+      ],
       component: Button,
     },
     Page: {

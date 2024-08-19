@@ -5,8 +5,9 @@ import { CommonComponentProps } from "@/types";
 const Button: React.FC<CommonComponentProps> = ({
   onClick,
   type,
-  test,
+  text,
   className = "",
+  styles,
   id,
 }) => {
   return (
@@ -14,9 +15,10 @@ const Button: React.FC<CommonComponentProps> = ({
       data-component-id={id}
       type={type}
       onClick={onClick}
+      style={styles}
       className={` ${className}`}
     >
-      {test}
+      {text}
     </AntdButton>
   );
 };
