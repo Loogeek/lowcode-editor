@@ -1,7 +1,7 @@
 import { create } from "zustand";
-import Container from "@/components/Materail/Container";
-import Button from "@/components/Materail/Button";
-import Page from "@/components/Materail/Page";
+import Container from "@/components/MaterailWrapper/Materail/Container";
+import Button from "@/components/MaterailWrapper/Materail/Button";
+import Page from "@/components/MaterailWrapper/Materail/Page";
 
 export interface ComponentSetter {
   name: string;
