@@ -26,7 +26,7 @@ function HoverMask({
 
   useEffect(() => {
     updatePosition();
-  }, [componentId]);
+  }, [componentId, components]);
 
   function updatePosition() {
     if (!componentId) return;
@@ -66,7 +66,6 @@ function HoverMask({
     return getComponentById(componentId, components);
   }, [componentId]);
 
-  console.log(111111, position);
   return createPortal(
     <>
       <div
@@ -105,7 +104,7 @@ function HoverMask({
             whiteSpace: "nowrap",
           }}
         >
-          {curComponent?.name}
+          {curComponent?.desc}
         </div>
       </div>
     </>,

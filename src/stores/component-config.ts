@@ -6,6 +6,7 @@ import Page from "@/components/Materail/Page";
 interface ComponentConfig {
   name: string;
   defaultProps: Record<string, any>;
+  desc: string;
   component: any;
 }
 
@@ -22,6 +23,7 @@ export const useComponentConfig = create<State & Actions>((set) => ({
     Container: {
       name: "Container",
       defaultProps: {},
+      desc: "容器",
       component: Container,
     },
     Button: {
@@ -30,11 +32,13 @@ export const useComponentConfig = create<State & Actions>((set) => ({
         type: "primary",
         test: "按钮",
       },
+      desc: "按钮",
       component: Button,
     },
     Page: {
       name: "Page",
       defaultProps: {},
+      desc: "页面",
       component: Page,
     },
   },

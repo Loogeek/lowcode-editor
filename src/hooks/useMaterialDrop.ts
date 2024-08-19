@@ -17,10 +17,13 @@ function useMeterialDrop({ id, accept }: useMeterialDropProps) {
       const didDrop = monitor.didDrop();
       if (didDrop) return;
 
+      const config = componentConfig[item.type];
+
       addComponent(
         {
           id: new Date().getTime(),
           name: item.type,
+          desc: config.desc,
           props,
         },
         id
